@@ -28,7 +28,6 @@
 (defn get-next-diagonal [a b]
   (if (= a b) [(- a 1) b] [a (- b 1)]))
 
-;; parse int
 (defn parse-int [s]
   (Integer. (re-find #"[0-9]*" s)))
 
@@ -48,7 +47,7 @@
     ;; if current coordinates is a palindrome, return product of coordinates
       (if (palindrome? (* currA currB))
         (* currA currB)
-        ;; else, if end of a diagonal, recurse starting at coords next diagonal.
+        ;; else, if end of a diagonal , recurse starting at coords next diagonal.
         ;; otherwise, recurse starting at next coordinate on the current diagonal.
         (cond
           (or (= currA 1) (only-nines currB)) (largest-palindrome-helper nextA nextB nextA nextB)
@@ -57,7 +56,18 @@
 ;; num is number of digits
 (defn largest-palindrome [num]
   ;; start with the highest number for a and b given digit limit
-  ;;  which is max number of 9s
+  ;;  which is max number of 9s for both a and b
   (let [a (parse-int (apply str (map (fn [num] 9) (range num))))
         b a]
     (largest-palindrome-helper a b a b)))
+
+;; TESTING
+
+(largest-palindrome 1)
+;; Ans 9
+
+(largest-palindrome 2)
+;; Ans 9009
+
+(largest-palindrome 3)
+;; Ans 906609
