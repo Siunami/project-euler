@@ -38,20 +38,20 @@
   (reduce * (map parse-int (clojure.string/split num-str #""))))
 
 (defn solution [num-adjacent]
-  (let [indexes (get-range (- 1000 num-adjacent))
-        sequences (map (fn [i] (subs digits i (+ i num-adjacent))) indexes)
-        products (map get-sequence-product sequences)
-        max (apply max products)]
-			max))
-
-
-(defn solution [num-adjacent]
   (->> num-adjacent
    		(- 1000)
       (get-range)
       (map (fn [i] (subs digits i (+ i num-adjacent))))
       (map get-sequence-product)
       (apply max)))
+
+;; Initial solution less proper form. Using ->> macro now
+; (defn solution [num-adjacent]
+;   (let [indexes (get-range (- 1000 num-adjacent))
+;         sequences (map (fn [i] (subs digits i (+ i num-adjacent))) indexes)
+;         products (map get-sequence-product sequences)
+;         max (apply max products)]
+; 			max))
 
 ;; Extra challenge
 
