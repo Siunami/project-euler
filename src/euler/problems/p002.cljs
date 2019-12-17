@@ -6,6 +6,10 @@
 ;
 ; By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
+;; first, get fibonacci sequence up to num.
+;; helper is recursive
+;; after, get even fibonacci numbers and sum them up.
+
 (defn fibonacci-helper [num x1 x2 seq]
   (let [next-num (+ x1 x2)]
     (if (< next-num num
@@ -15,7 +19,6 @@
 (defn fibonacci [num] (cond)
                       (<= num 0) ()
                       (= num 1) (list 1)
-                      (= num 2) (list 1 2)
                       :else (fibonacci-helper num 2 1 (list 2 1)))
 
 ;; Use (solution 4000000) to solve

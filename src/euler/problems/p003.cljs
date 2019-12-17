@@ -18,12 +18,12 @@
 ;       (if (mod num n)
 ;         (conj factors n)))))
 
-(defn exp [x n]
-  (reduce * (repeat n x)))
-
-(defn prime? [num]
-  (map (fn [a] (do
-                 (println a)
-                 (= 1 (exp a
-                         (- num 1)))))
-       (range 2 (- num 1))))
+; (defn exp [x n]
+;   (reduce * (repeat n x)))
+;
+; (defn prime? [num]
+;   (map (fn [a] (do
+;                  (println a)
+;                  (= 1 (exp a
+;                          (- num 1)))))
+;        (range 2 (- num 1))))

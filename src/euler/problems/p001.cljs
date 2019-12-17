@@ -4,6 +4,9 @@
 ;
 ; Find the sum of all the multiples of 3 or 5 below 1000.
 
+;; for each number below 1000, get a collection that is a multiple of 3 or 5
+;; then reduce applying the sum function.
+
 (defn solution [] (reduce +
                           (filter
                            (fn [num] (or (= (mod num 5) 0)
