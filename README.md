@@ -4,7 +4,7 @@
 
 ### Euler Problems
 Solutions for:
-- 1
+- [1](https://github.com/Siunami/project-euler/blob/master/euler%20problems/p001.cljs)
 - 2
 - 4
 - 5
