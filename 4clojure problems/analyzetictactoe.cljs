@@ -32,6 +32,8 @@
 ;             [:x :o :x]
 ;             [:o :x :o]]))
 
+;; For a sequence of 3 nums, will check if a win for :x or :o
+;; otherwise, return nil
 (defn check-win [nums]
   (let [count (frequencies nums)]
     (cond
@@ -42,6 +44,8 @@
 (defn check-horizontal [row]
   (check-win row))
 
+;; Gets the three vertical columns and checks for win.
+;; returns a collection of values returned from (check-win)
 (defn check-verticals [board]
   (let [row1 (get board 0)
         row2 (get board 1)
@@ -49,6 +53,8 @@
     (for [i (range 0 3)]
         (check-win [(get row1 i) (get row2 i) (get row3 i)]))))
 
+;; Gets the two diagonal columns and checks for win.
+;; returns a collection of values returned from (check-win)
 (defn check-diagonals [board]
   (let [row1 (get board 0)
         row2 (get board 1)
@@ -57,6 +63,9 @@
       (check-win [(get row1 0) (get row2 1) (get row3 2)])
       (check-win [(get row1 2) (get row2 1) (get row3 0)]))))
 
+;; reduces all collections into a single collection.
+;; all nil results filtered
+;; if (first) contains a value still, will either be :x or :y for any valid board
 (defn analyze-board [board]
   (first (filter (fn [val] (not (nil? val)))
            (reduce into [(check-diagonals board)
