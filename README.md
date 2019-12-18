@@ -12,4 +12,4 @@ Solutions for:
 - 8
 
 ### 4clojure Problems
-- all lists problems solved
+- all problems in folder solved
